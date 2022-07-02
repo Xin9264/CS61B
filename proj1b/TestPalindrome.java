@@ -15,4 +15,18 @@ public class TestPalindrome {
         }
         assertEquals("persiflage", actual);
     }
+
+    @Test
+    public void testisPalindrome(){
+//        boolean actual = true;
+//        boolean fact = palindrome.isPalindrome("noon");
+        assertTrue(palindrome.isPalindrome("ava"));
+        assertTrue(palindrome.isPalindrome("noon"));
+        assertFalse(palindrome.isPalindrome("Diana"));
+        assertTrue(palindrome.isPalindrome("aaaaa"));
+        assertFalse(palindrome.isPalindrome("wangxin"));
+        OffByOne cc = new OffByOne();
+        assertFalse(palindrome.isPalindrome("minami", cc));
+        assertTrue(palindrome.isPalindrome("ava", cc));
+    }
 }
