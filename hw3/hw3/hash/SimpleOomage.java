@@ -14,22 +14,41 @@ public class SimpleOomage implements Oomage {
 
     @Override
     public boolean equals(Object o) {
+        if (o == this ){
+            return true;
+        }
+        if (o == null){
+            return false;
+        }
+        if (o.getClass() != this.getClass()){
+            return false;
+        }
+        SimpleOomage s = (SimpleOomage) o;
+        return (s.red == this.red) && (s.blue == this.blue) && (s.green == this.green);
         // TODO: Write this method.
-        return false;
+//        return false;
     }
 
-    /* Uncomment this method after you've written
-       equals and failed the testHashCodeAndEqualsConsistency
-       test.
+//         Uncomment this method after you've written
+//       equals and failed the testHashCodeAndEqualsConsistency
+//       test.
     @Override
     public int hashCode() {
-        if (!USE_PERFECT_HASH) {
+        if (USE_PERFECT_HASH) {
             return red + green + blue;
         } else {
             // TODO: Write a perfect hash function for Simple Oomages.
-            return 0;
+//            int hashCode =  red * 255 * 255 + green * 255 + blue;
+//            hashCode = hashCode / 25;
+//            return hashCode;
+            int hashCode = 0;
+            hashCode += red / 5 * 52 * 52;
+            hashCode += green / 5 * 52;
+            hashCode += blue / 5;
+            return hashCode;
         }
-    }*/
+
+    }
 
     public SimpleOomage(int r, int g, int b) {
         if (r < 0 || r > 255 || g < 0 || g > 255 || b < 0 || b > 255) {
